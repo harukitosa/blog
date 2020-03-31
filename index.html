@@ -1,39 +1,106 @@
-<!DOCTYPE html>
+<html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOSA PORTFOLIO</title>
+    <title>とさのポーロフォリオ</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
 </head>
 
 <body>
-    <h1>とさ</h1>
-    <p>2020/03/28</p>
-    <span>明治大学理工学部情報科学科3年</span>
-    <span>13haruki28(at)gmail.com</span>
-    <h3>[趣味]</h3>
-    <p>読書、野球、山登り</p>
-    <h3>[プログラミング言語]</h3>
-    <p>golang/C++/php/Javascript</p>
-    <h3>[使用ライブラリ]</h3>
-    <p>Vue, React, gin, gorm</p>
-    <h3>[触ったことがあるライブラリ]</h3>
-    <p>Angular, ionic</p>
-    <h4>[競技プログラミング]</h4>
-    <p>Atcoder [茶]</p>
-    <h2>[リンク目次]</h2>
-    <ul>
-        <li>
-            <a href="novels/index.html">小説集</a>
-        </li>
-    </ul>
-    <ul>
-        <li>
-            <a href="profile.html">自己紹介</a>
-        </li>
-    </ul>
-    
+    <div>
+        <h3>HARUKI TOSA</h3>
+        <h3>PORTFOLIO</h3>
+        <p></p>
+    </div>
 </body>
 
 </html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        color: black;
+    }
+
+    div {
+        padding: 40px;
+    }
+
+    body {
+        background-color: rgba(255, 255, 255, 0.60);
+    }
+
+    #defaultCanvas0 {
+        position: fixed;
+        top: 0;
+    }
+
+    a,
+    h3 {
+        text-decoration: none;
+        color: white;
+        font-size: 28px;
+        padding: 8px;
+    }
+</style>
+<script>
+    let arr = [];
+
+    class Point {
+        constructor() {
+            this.pos_x = random(windowWidth);
+            this.pos_y = random(windowHeight);
+            this.bef_x = this.pos_x + 100;
+            this.bef_y = this.pos_y + 100;
+            this.rad = random(360);
+            this.vec = random(10) - 5;
+            this.color = random(100)+155;
+        }
+
+        draw() {
+            fill(0, this.color, this.color);
+            noStroke();
+            ellipse(this.pos_x, this.pos_y, 1, 1);
+        }
+
+        updatePos() {
+            this.rad += PI / 360;
+        }
+
+        move() {
+            this.rad += PI / 360;
+            this.bef_x = this.pos_x;
+            this.bef_y = this.pos_y;
+            this.pos_x += this.vec * cos(this.rad);
+            this.pos_y += this.vec * sin(this.rad);
+            this.vec += random(1)-0.5;
+        }
+
+    }
+
+    function setup() {
+        canvas = createCanvas(windowWidth, windowHeight);
+        canvas.style('z-index', '-1');
+        background(0, 0, 0);
+
+        for (let i = 0; i < 500; i++) {
+            arr.push(new Point());
+        }
+    }
+
+    function draw() {
+
+        for (let i = 0; i < arr.length; i++) {
+
+            arr[i].updatePos(arr);
+            arr[i].move();
+            arr[i].draw();
+
+        }
+    }
+    function windowResized() {
+        resizeCanvas(windowWidth, windowHeight);
+    }
+</script>
