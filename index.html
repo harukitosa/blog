@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="とさのポートフォリオ">
     <title>とさのポートフォリオ</title>
+    <meta property="og:url" content="https://harukitosa.github.io/" />
+    <meta property="og:title" content="とさのポートフォリオ" />
+    <meta property="og:image" content="https://harukitosa.github.io/image.JPG" />
+    <meta name="twitter:card" content="カード種類" />
+    <meta name="twitter:site" content="@tosa_now" />
+    <meta property="og:site_name" content="とさのポートフォリオ" />
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
 </head>
 
@@ -12,16 +19,17 @@
     <div>
         <div class="header">
             <div class="box">
-                <h1>HARUKI TOSA</h1>
-                <h2>2020 PORTFOLIO</h2>
-                <h2>HAVE FUN</h2>
+                <div class="border">
+                    <h1>HARUKI TOSA</h1>
+                    <h2>2020 PORTFOLIO</h2>
+                </div>
             </div>
         </div>
         <div class="main">
             <h2>ABOUT</h2>
             <ul>
                 <li>Name 土佐陽生</li>
-                <li>University 明治大学理工学部情報科学科B3</li>
+                <li>University <br>明治大学理工学部情報科学科</li>
                 <li>Github harukitosa</li>
                 <li>Mail 13haruki28[at]gmail.com</li>
             </ul>
@@ -72,10 +80,52 @@
                 <span>ソフトウェアエンジニア</span>
                 <span><br>(php, jQuery)</span>
             </ul>
+            <h2>学習していきたいこと(主にメモ)</h2>
+            <ul>
+                <li>Infra</li>
+                <p>DockerやAWSを用いてアプリケーションを構築できるようになりたい。</p>
+                <li>機械学習またそれに伴う数学の知識</li>
+                <p>今年度の上半期で学習する予定。数学は線形、微積、確率統計、またpythonを用いて実装までいければベスト。</p>
+                <li>アーキテクチャ</li>
+                <p>どうしても大規模になるほど機能の追加、アプリケーションの構成等が複雑になってしまう。</p>
+                <p>理想を言えばほとんどコードを書かないで目的の機能を実装したい。</p>
+                <li>アルゴリズム</li>
+                <p>
+                    現在Atcoderは茶色。初めはアルゴリズムの授業をとっていない（逃げた）からという理由で始めたが、現在では
+                    趣味になっている。目標は水色。
+                </p>
+                <li>ハードウェア</li>
+                <p>
+                    ドローンを操縦したり、あとVRでお墓を作りたい。
+                    作りたいものややりたいことがあるが、手を出せていない...
+                </p>
+                <li>関数型言語</li>
+                <p>
+                    まだ、触ったことがないので。在学中に一つ触ってみたいです。
+                    優先順位は低い。
+                </p>
+                <li>セキュリティ</li>
+                <p>
+                    ホワイトハッカーという言葉の響きに憧れがある。
+                </p>
+            </ul>
             <h2>その他</h2>
             <ul>
                 <li>読書・創作</li>
+                <p>
+                    読書は主に小説、最近は学習のため技術書を読んでいる。創作は夏を背景にしたノスタルジックな作品が好きで、
+                    将来、夏を題材とした一冊の本を書くことが目標。
+                </p>
                 <li>駄洒落</li>
+                <p>
+                    駄洒落をよく思いつく。思いつくだけならいいのだが、どうしても口に出したくなり煙たがられる。
+                </p>
+                <li>海外旅行</li>
+                <p>
+                    アメリカ、中国、ベトナム、カンボジアに行ったことがある。
+                    お金がないのに無理やり行くので銀行口座は常に0に近い。
+                    今はインドにいきたい。
+                </p>
             </ul>
         </div>
     </div>
@@ -99,15 +149,23 @@
 
     .header {
         text-align: center;
-        margin-top: 35vh;
+        /* margin-top: 20vh; */
+        display: table;
+        width: 100vw;
         height: 100vh;
     }
 
     .box {
-        border: 3px solid white;
         max-width: 800px;
         /* width: 400px; */
-        padding: 20px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .border {
+        /* border: 3px solid white; */
+        padding: 28px;
+        max-width: 800px;
         margin: auto;
     }
 
@@ -157,6 +215,10 @@
 
     ul {
         padding: 28px;
+    }
+
+    p {
+        padding: 8px;
     }
 
     li {
