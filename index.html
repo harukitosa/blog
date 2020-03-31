@@ -85,7 +85,7 @@
         canvas.style('z-index', '-1');
         background(0, 0, 0);
 
-        for (let i = 0; i < 500; i++) {
+        for (let i = 0; i < 1000; i++) {
             arr.push(new Point());
         }
     }
@@ -102,5 +102,7 @@
     }
     function windowResized() {
         resizeCanvas(windowWidth, windowHeight);
+        background(0, 0, 0);
+
     }
 </script>
