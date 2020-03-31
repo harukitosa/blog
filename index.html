@@ -9,10 +9,56 @@
 </head>
 
 <body>
-    <div>
-        <h3>HARUKI TOSA</h3>
-        <h3>PORTFOLIO</h3>
-        <p></p>
+    <div class="main">
+        <h1>HARUKI TOSA</h1>
+        <h2>2020 PORTFOLIO</h2>
+        <h2>ABOUT</h2>
+        <ul>
+            <li>Name 土佐陽生</li>
+            <li>University 明治大学理工学部情報科学科B3</li>
+            <li>Github harukitosa</li>
+            <li>Mail 13haruki28[at]gmail.com</li>
+        </ul>
+        <h2>SKILLs</h2>
+        <ul>
+            <li>Go</li>
+            <li>PHP</li>
+            <li>Javascript</li>
+            <li>C/C++</li>
+            <li>Vue.js</li>
+            <li>React</li>
+            <li>Processing</li>
+            <li>Firebase</li>
+            <li>Heroku</li>
+        </ul>
+        <h2>Works</h2>
+        <div class="work">
+            <h4>eigorilla(えいごりら)</h4>
+            <a href="https://eigorilla-app.com/">link</a>
+            <p>Twitterライクな英語投稿サイトです。基本的なCRUDの機能をgolangで実装しました。</p>
+            <p>使用技術 Vue.js, go(gin, gorm), Heroku, firebase</p>
+        </div>
+        <div class="work">
+            <h4>トイレの神様</h4>
+            <a href="https://github.com/harukitosa/yamagata_procon">copy link</a>
+            <p>ハッカソンでチームで開発したアプリケーションです。地図上にトイレの空き情報と位置を表示します。フロントエンドとバックエンドの一部を担当しました。</p>
+            <p>使用技術 React, go(gin, gorm), AWS</p>
+        </div>
+        <div class="work">
+            <h4>授業パフォーマンス評価アプリケーション(制作中)</h4>
+            <a href="https://github.com/harukitosa/lecture_performance_app">link</a>
+            <p>現在制作中のアプリケーションです。flutter/dartを用いて作成しています。</p>
+            <p>使用技術 flutter/dart</p>
+        </div>
+        <div class="work">
+            <h4>Processingによるデジタルアート作品
+            </h4>
+            <a href="https://haruki-art.netlify.com/index.html">link</a>
+            <p>processing(p5.js)を用いた作品集です。コードを描きながら面白い動きや形を模索しています。
+                このサイトの背景もp5.jsで実装しています。
+            </p>
+            <p>使用技術 processing, Javascript</p>
+        </div>
     </div>
 </body>
 
@@ -21,11 +67,16 @@
     * {
         margin: 0;
         padding: 0;
-        color: black;
+        color: white;
     }
 
-    div {
+    .main {
         padding: 40px;
+    }
+
+    .work {
+        padding: 18px;
+        max-width: 600px;
     }
 
     body {
@@ -37,12 +88,38 @@
         top: 0;
     }
 
-    a,
+    h1 {
+        font-size: 36px;
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 32px;
+        padding: 8px;
+    }
+
+    h4 {
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        padding: 8px;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+    }
+
     h3 {
         text-decoration: none;
         color: white;
-        font-size: 28px;
+        font-size: 24px;
         padding: 8px;
+    }
+
+    ul {
+        padding: 40px;
     }
 </style>
 <script>
@@ -56,7 +133,7 @@
             this.bef_y = this.pos_y + 100;
             this.rad = random(360);
             this.vec = random(10) - 5;
-            this.color = random(100)+155;
+            this.color = random(100) + 155;
         }
 
         draw() {
@@ -75,7 +152,7 @@
             this.bef_y = this.pos_y;
             this.pos_x += this.vec * cos(this.rad);
             this.pos_y += this.vec * sin(this.rad);
-            this.vec += random(1)-0.5;
+            this.vec += random(1) - 0.5;
         }
 
     }
