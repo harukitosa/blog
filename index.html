@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>とさのポーロフォリオ</title>
+    <title>とさのポートフォリオ</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
 </head>
 
 <body>
     <div>
         <div class="header">
-            <h1>HARUKI TOSA</h1>
-            <h2>2020 PORTFOLIO</h2>
+            <div class="box">
+                <h1>HARUKI TOSA</h1>
+                <h2>2020 PORTFOLIO</h2>
+                <h2>HAVE FUN</h2>
+            </div>
         </div>
         <div class="main">
             <h2>ABOUT</h2>
@@ -69,6 +72,11 @@
                 <span>ソフトウェアエンジニア</span>
                 <span><br>(php, jQuery)</span>
             </ul>
+            <h2>その他</h2>
+            <ul>
+                <li>読書・創作</li>
+                <li>駄洒落</li>
+            </ul>
         </div>
     </div>
 </body>
@@ -91,8 +99,16 @@
 
     .header {
         text-align: center;
-        padding-top: 300px;
+        margin-top: 35vh;
         height: 100vh;
+    }
+
+    .box {
+        border: 3px solid white;
+        max-width: 800px;
+        width: 400px;
+        padding: 20px;
+        margin: auto;
     }
 
     .work {
