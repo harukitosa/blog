@@ -41,7 +41,7 @@
         this.y = random(windowHeight);
         this.xSpeed = random(-2, 2) + 1;
         this.ySpeed = random(-2, 2) + 1;
-        this.diametar = 10;
+        this.diametar = 1;
       }
 
       calcurate(array) {
@@ -54,9 +54,6 @@
           if (distance < 100) {
             line(this.x, this.y, array[i].x, array[i].y);
           }
-        }
-        if (!flag) {
-          fill(100);
         }
       }
 
@@ -76,6 +73,8 @@
       canvas = createCanvas(windowWidth, windowHeight); //ブラウザのウィンドウサイズに合わせてcanvas作成
       canvas.style("z-index", "-1");
       background(0);
+      stroke(255);
+      background(0);
       for (let i = 0; i < windowWidth / 12; i++) {
         arr.push(new Point());
       }
@@ -84,8 +83,6 @@
     let rad = 0;
 
     function draw() {
-      background(0);
-      stroke(255, 80);
       for (let i = 0; i < arr.length; i++) {
         arr[i].draw();
         arr[i].moveParticle();
