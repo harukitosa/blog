@@ -84,8 +84,8 @@
       border-radius: 10px;
     }
     .links {
-        color: white;
-        margin-top: 30px;
+      color: white;
+      margin-top: 30px;
     }
 
     .work {
@@ -128,10 +128,10 @@
     }
 
     a:hover {
-        border: none;
-        background-color: white;
-        color: black;
-        padding: 7px;
+      border: none;
+      background-color: white;
+      color: black;
+      padding: 7px;
     }
 
     h3 {
@@ -153,67 +153,66 @@
     }
   </style>
   <script>
-let arr = [];
-class Point {
-  constructor() {
-    this.x = random(windowWidth);
-    this.y = random(windowHeight);
-    this.xSpeed = random(-2, 2) + 1;
-    this.ySpeed = random(-2, 2) + 1;
-    this.diametar = 1;
-  }
+    let arr = [];
+    class Point {
+      constructor() {
+        this.x = random(windowWidth);
+        this.y = random(windowHeight);
+        this.xSpeed = random(-2, 2) + 1;
+        this.ySpeed = random(-2, 2) + 1;
+        this.diametar = 1;
+      }
 
-  calcurate(array) {
-    let flag = false;
-    for (let i = 0; i < array.length; i++) {
-      const distance = Math.pow(
-        Math.pow(this.x - array[i].x, 2) + Math.pow(this.y - array[i].y, 2),
-        0.5
-      );
-      if (distance < 100) {
-        line(this.x, this.y, array[i].x, array[i].y);
+      calcurate(array) {
+        let flag = false;
+        for (let i = 0; i < array.length; i++) {
+          const distance = Math.pow(
+            Math.pow(this.x - array[i].x, 2) + Math.pow(this.y - array[i].y, 2),
+            0.5
+          );
+          if (distance < 100) {
+            line(this.x, this.y, array[i].x, array[i].y);
+          }
+        }
+        if (!flag) {
+          fill(100);
+        }
+      }
+
+      moveParticle() {
+        if (this.x < 0 || this.x > width) this.xSpeed *= -1;
+        if (this.y < 0 || this.y > height) this.ySpeed *= -1;
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+      }
+
+      draw() {
+        ellipse(this.x, this.y, this.diametar);
       }
     }
-    if (!flag) {
-      fill(100);
+
+    function setup() {
+      canvas = createCanvas(windowWidth, windowHeight); //ブラウザのウィンドウサイズに合わせてcanvas作成
+      canvas.style("z-index", "-1");
+      background(0);
+      for (let i = 0; i < windowWidth / 10; i++) {
+        arr.push(new Point());
+      }
     }
-  }
 
-  moveParticle() {
-    if (this.x < 0 || this.x > width) this.xSpeed *= -1;
-    if (this.y < 0 || this.y > height) this.ySpeed *= -1;
-    this.x += this.xSpeed;
-    this.y += this.ySpeed;
-  }
+    let rad = 0;
 
-  draw() {
-    ellipse(this.x, this.y, this.diametar);
-  }
-}
-
-function setup() {
-  canvas = createCanvas(windowWidth, windowHeight); //ブラウザのウィンドウサイズに合わせてcanvas作成
-  canvas.style("z-index", "-1");
-  background(0);
-  for (let i = 0; i < windowWidth/10; i++) {
-    arr.push(new Point());
-  }
-}
-
-let rad = 0;
-
-function draw() {
-  background(0);
-  stroke(255, 50);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].draw();
-    arr[i].moveParticle();
-    arr[i].calcurate(arr);
-  }
-}
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
+    function draw() {
+      background(0);
+      stroke(255, 80);
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].draw();
+        arr[i].moveParticle();
+        arr[i].calcurate(arr);
+      }
+    }
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
   </script>
 </html>
