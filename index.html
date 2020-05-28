@@ -41,7 +41,7 @@
         this.y = random(windowHeight);
         this.xSpeed = random(-1, 1);
         this.ySpeed = random(-1, 1);
-        this.diametar = 1;
+        this.diametar = 5;
       }
 
       calcurate(array) {
@@ -52,6 +52,7 @@
             0.5
           );
           if (distance < 100) {
+            stroke(255, 100-distance+10);
             line(this.x, this.y, array[i].x, array[i].y);
           }
         }
