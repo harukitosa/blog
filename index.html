@@ -83,7 +83,15 @@
 
     function draw() {
       background(0);
-
+      textSize(32);
+      fill(0, 102, 153);
+      text("H", windowWidth/2, windowHeight/2+sin(rad)*10);
+      text("A", windowWidth/2+32, windowHeight/2+sin(rad+PI/8)*10);
+      text("R", windowWidth/2+64, windowHeight/2+sin(rad+PI/4)*10);
+      text("U", windowWidth/2+96, windowHeight/2+sin(rad+PI*3/8)*10);
+      text("K", windowWidth/2+128, windowHeight/2+sin(rad+PI/2)*10);
+      text("I", windowWidth/2+160, windowHeight/2+sin(rad+PI*5/8)*10);
+      rad += PI/32;
       for (let i = 0; i < arr.length; i++) {
         arr[i].draw();
         arr[i].moveParticle();
